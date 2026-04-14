@@ -16,9 +16,9 @@ Bitcoin + SmartContract + Decentralized ID + Unlimited Scalability
 |-----------|-------|
 | **Ticker** | IXC |
 | **Maximum Supply** | 21,000,000 IXC |
-| **Initial Block Reward** | 12.5 IXC |
-| **First Block (Developer Fund)** | 6,000,000 IXC |
-| **PoW Supply** | 15,000,000 IXC |
+| **Initial Block Reward** | 25 IXC |
+| **First Block (Developer Fund)** | 9,000,000 IXC |
+| **PoW Supply** | 12,000,000 IXC |
 | **Consensus** | Proof of Work (PoW) |
 | **Halving Interval** | Every 210,000 blocks |
 
