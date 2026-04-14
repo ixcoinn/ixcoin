@@ -17,9 +17,9 @@ IXCOIN + SmartContract + Decentralized ID + Unlimited Scalability
 | **Ticker** | IXC |
 | **Maximum Supply** | 21,000,000 IXC |
 | **Initial Block Reward** | 25 IXC |
-| **allocation is vested** | 9,000,000 IXC |
+| **Development funds are locked under vesting** | 9,000,000 IXC |
 | **PoW Supply** | 12,000,000 IXC |
-| **Consensus** | Proof of Work (PoW) |
+| **Consensus** | Proof of Work (PoW) sha256 utxo model|
 | **Halving Interval** | Every 210,000 blocks |
 
 --------------
