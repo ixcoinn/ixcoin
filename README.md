@@ -17,7 +17,7 @@ Bitcoin + SmartContract + Decentralized ID + Unlimited Scalability
 | **Ticker** | IXC |
 | **Maximum Supply** | 21,000,000 IXC |
 | **Initial Block Reward** | 25 IXC |
-| **Development allocation is subject to vesting.”** | 9,000,000 IXC |
+| **Development allocation is vested** | 9,000,000 IXC |
 | **PoW Supply** | 12,000,000 IXC |
 | **Consensus** | Proof of Work (PoW) |
 | **Halving Interval** | Every 210,000 blocks |
