@@ -1,0 +1,26 @@
+[Unit]
+Description=IXCoin AI Life Layer API Server
+Documentation=https://github.com/your-org/ixcoin
+After=network.target postgresql.service
+Requires=postgresql.service
+
+[Service]
+Type=simple
+User=ixcoin
+WorkingDirectory=/opt/ixcoin
+EnvironmentFile=/opt/ixcoin/.env
+ExecStart=/usr/bin/node --enable-source-maps /opt/ixcoin/artifacts/api-server/dist/index.mjs
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=ixcoin-api
+
+# Security hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=/opt/ixcoin
+
+[Install]
+WantedBy=multi-user.target

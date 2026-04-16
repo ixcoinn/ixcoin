@@ -1,0 +1,40 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB:       ixcoin
+      POSTGRES_USER:     ixcoin
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ixcoin"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  ai-layer:
+    build:
+      context: ./ai-layer
+      dockerfile: ../Dockerfile
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL:    postgresql://ixcoin:${POSTGRES_PASSWORD}@postgres:5432/ixcoin
+      SESSION_SECRET:  ${SESSION_SECRET}
+      NODE_ENV:        production
+      PORT:            3000
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./logs:/app/logs
+
+volumes:
+  pgdata:

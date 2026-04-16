@@ -1,0 +1,50 @@
+{
+  "network": "IXCoin",
+  "ticker": "IXC",
+  "genesisDate": "2025",
+  "maxSupply": 21000000,
+  "preMineTotal": 6000000,
+  "preMineAllocations": [
+    {
+      "label": "Development Fund",
+      "amount": 4000000,
+      "amountSatoshis": 400000000000000,
+      "walletAddress": "PLACEHOLDER_DEVELOPMENT_WALLET_ADDRESS",
+      "addressType": "P2PKH (BIP39 HD Wallet, m/44'/0'/0'/0/0)",
+      "note": "Replace with actual address before genesis deployment."
+    },
+    {
+      "label": "Free Circulation",
+      "amount": 2000000,
+      "amountSatoshis": 200000000000000,
+      "walletAddress": "PLACEHOLDER_CIRCULATION_WALLET_ADDRESS",
+      "addressType": "P2PKH",
+      "note": "Replace with exchange/liquidity wallet address before genesis. No lock period."
+    }
+  ],
+  "dynamicPools": [
+    {
+      "label": "AI Ecosystem Pool",
+      "totalReserved": 5000000,
+      "type": "dynamic_reward_pool",
+      "supplyRule": "FIXED — never exceeds 5,000,000 IXC total. No new coins are minted. Pool only decreases. Stops permanently at zero.",
+      "note": "NOT distributed at genesis. No wallet address. Managed exclusively by ai-layer/src/ecosystem/pool.ts. System enforces hard stop when remaining reaches 0."
+    }
+  ],
+  "miningPool": {
+    "label": "Proof of Work Mining Reward",
+    "totalCeiling": 10000000,
+    "blockReward": 25,
+    "halvingInterval": 210000,
+    "note": "Not pre-mined. Distributed to miners via block rewards only."
+  },
+  "supplyVerification": {
+    "mining": 10000000,
+    "aiPool": 5000000,
+    "development": 4000000,
+    "circulation": 2000000,
+    "total": 21000000,
+    "valid": true,
+    "supplyControlNote": "AI pool is CAPPED at 5M. No mechanism exists to create coins beyond this allocation."
+  }
+}
