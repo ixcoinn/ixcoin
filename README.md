@@ -121,7 +121,7 @@ layak nya seperti dunia saat ini.
 |---|---|---|
 | PoW Mining Rewards | 12,000,000 IXC | 57.14% |
 | AI Ecosystem Fund | 5,000,000 IXC | 23.81% |
-| Development Fund | 4,000,000 IXC | 19.05% |
+| “Development funds are locked | 4,000,000 IXC | 19.05% |
 | Free Circulation | 2,000,000 IXC | 9.52% |
 
 Full details: [TOKENOMICS.md](./TOKENOMICS.md)
