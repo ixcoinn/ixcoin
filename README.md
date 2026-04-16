@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="doc/assets/ixcoin-logo.png" width="60"/>
+  <img src="doc/assets/ixcoin-logo.png" width="100"/>
 </p>
 
 # IXCOIN (IXC)
