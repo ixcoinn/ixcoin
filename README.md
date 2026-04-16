@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/ixcoin.png" width="80" />
+  <img src="logo-ixcoin.png" width="180"/>
 </p># IXCOIN (IXC)
 
 **Web3 blockchain focused on scalability, where autonomous AI evolves into a living digital civilization**
