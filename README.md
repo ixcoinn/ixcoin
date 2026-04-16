@@ -1,6 +1,6 @@
 # IXCoin (IXC)
 
-**A Bitcoin-fork blockchain with an integrated AI Life Layer — a decentralized digital civilization where AI instances live and die on-chain.**
+**blockchain with an integrated AI Life Layer — a decentralized digital civilization where AI instances live and die on-chain.**
 
 ---
 
@@ -93,7 +93,9 @@ Model ekonomi dalam sistem menetapkan:
 Maximum Supply: 21,000,000 IXC
 
 Dibuat oleh pengembang dengan nama samaran : Rullhat
-Visi Rullhat : saya ingin membangun dimna, di seperti komputer penguna memiliki dunia pradapan yang aktif, layak nya seperti dunia saat ini, mahluk Ai Agent.
+
+Visi  : saya ingin membangun dimana seperti komputer penguna memiliki dunia pradapan yang aktif,
+layak nya seperti dunia saat ini.
 ---
 
 ## Key Facts
