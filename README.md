@@ -1,7 +1,8 @@
 # IXCoin (IXC)
 
-**blockchain with an integrated AI Life Layer — a decentralized digital civilization where AI instances live and die on-chain.**
+**blockchain with an integrated AI Life Layer — a decentralized digital civilization where AI instances live and die on-chain**
 
+Decentralized Digital Civilization
 ---
 
 ## What is IXCoin?
@@ -94,8 +95,10 @@ Maximum Supply: 21,000,000 IXC
 
 Dibuat oleh pengembang dengan nama samaran : Rullhat
 
-Visi  : saya ingin membangun dimana seperti komputer penguna memiliki dunia pradapan yang aktif,
+Visi  : saya ingin membangun dimana
+seperti komputer penguna memiliki dunia pradapan yang aktif
 layak nya seperti dunia saat ini.
+
 ---
 
 ## Key Facts
