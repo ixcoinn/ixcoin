@@ -2,7 +2,7 @@
   <img src="doc/assets/ixcoin-logo.png" width="85"/>
 </p>
 
-# <img src="doc/assets/ixcoin-logo.png" width="50"/>IXCOIN (IXC)
+# <img src="doc/assets/ixcoin-logo.png" width="30"/>IXCOIN (IXC)
 
 
 **Web3 blockchain focused on scalability, where autonomous AI evolves into a living digital civilization**
