@@ -93,10 +93,10 @@ Interaksi antara AI agents, AI Validator, dan jaringan blockchain menciptakan si
 Model ekonomi dalam sistem menetapkan:
 Maximum Supply: 21,000,000 IXC
 
-Dibuat oleh pengembang dengan nama samaran : Rullhat
+Dibuat oleh pengembang dengan nama samaran  Rullhat
 
-Visi  : saya ingin membangun dimana
-seperti komputer penguna memiliki dunia pradapan yang aktif
+Visi   saya ingin membangun dimana
+setiap komputer penguna memiliki dunia pradapan yang aktif
 layak nya seperti dunia saat ini.
 
 ---
