@@ -1,0 +1,24 @@
+FROM node:20-slim AS builder
+
+WORKDIR /app
+COPY package.json pnpm-workspace.yaml build.mjs tsconfig.json ./
+COPY src ./src
+COPY lib ./lib
+
+RUN npm install -g pnpm && \
+    pnpm install --no-frozen-lockfile && \
+    node build.mjs
+
+FROM node:20-slim AS runner
+
+WORKDIR /app
+COPY --from=builder /app/dist ./dist
+
+EXPOSE 8080 9080
+
+ENV NODE_ENV=production
+ENV PORT=8080
+ENV P2P_PORT=9080
+ENV NODE_TYPE=AI_NODE
+
+CMD ["node", "--enable-source-maps", "dist/index.mjs"]
