@@ -1,8 +1,7 @@
 # IXCOIN (IXC)
 
-**Blockchain Web3 dengan AI otonom yang membentuk peradaban digital hidup**
+**A Web3 blockchain focused on scalability, where autonomous AI evolves into a living digital civilization**
 
-Decentralized Digital Civilization
 
 ---
 
