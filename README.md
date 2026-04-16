@@ -1,8 +1,9 @@
-# IXCoin (IXC)
+# IXCOIN (IXC)
 
-**blockchain with an integrated AI Life Layer — a decentralized digital civilization where AI instances live and die on-chain**
+**A living digital civilization powered by Web3 blockchain and autonomous AI**
 
 Decentralized Digital Civilization
+
 ---
 
 ## What is IXCoin?
