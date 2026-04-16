@@ -7,7 +7,7 @@
 
 ## What is IXCoin?
 
-IXCoin adalah mata uang kripto yang menggunakan blockchain Layer 1 dengan menggunakan Proof of Work (PoW) berbasis SHA-256, yang menggunakan model transaksi UTXO (Unspent Transaction Output).
+IXCoin adalah mata uang kripto blockchain Layer 1 yang menggunakan Proof of Work (PoW) berbasis SHA-256, dan menggunakan model transaksi UTXO (Unspent Transaction Output).
 
 IXCoin dirancang untuk menggabungkan keamanan kriptografi dengan sistem kecerdasan buatan dalam satu arsitektur terpadu.
 Sistem ini terdiri dari beberapa komponen utama:
