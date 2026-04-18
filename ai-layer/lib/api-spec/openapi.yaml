@@ -1,0 +1,432 @@
+openapi: 3.1.0
+info:
+  # Do not change the title, if the title changes, the import paths will be broken
+  title: Api
+  version: 0.1.0
+  description: API specification
+servers:
+  - url: /api
+    description: Base API path
+tags:
+  - name: health
+    description: Health operations
+  - name: ai-layer
+    description: AI Life Layer - Decentralized Digital Civilization Module
+paths:
+  /healthz:
+    get:
+      operationId: healthCheck
+      tags: [health]
+      summary: Health check
+      description: Returns server health status
+      responses:
+        "200":
+          description: Healthy
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthStatus"
+
+  /ai/instances:
+    get:
+      operationId: listAiInstances
+      tags: [ai-layer]
+      summary: List all AI instances
+      description: Returns all AI instances and their current lifecycle state
+      responses:
+        "200":
+          description: List of AI instances
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/AiInstance"
+    post:
+      operationId: createAiInstance
+      tags: [ai-layer]
+      summary: Create a new AI instance
+      description: Spawns a new AI entity that will live or die based on blockchain activity
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateAiInstanceBody"
+      responses:
+        "201":
+          description: AI instance created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AiInstance"
+
+  /ai/instances/{id}:
+    get:
+      operationId: getAiInstance
+      tags: [ai-layer]
+      summary: Get a specific AI instance
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: AI instance details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AiInstance"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+    delete:
+      operationId: deleteAiInstance
+      tags: [ai-layer]
+      summary: Archive an AI instance
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Archived
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /ai/instances/{id}/memory:
+    get:
+      operationId: getAiMemory
+      tags: [ai-layer]
+      summary: Get AI memory snapshot
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: AI memory state
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AiMemory"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+    patch:
+      operationId: updateAiMemory
+      tags: [ai-layer]
+      summary: Write to AI memory
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateAiMemoryBody"
+      responses:
+        "200":
+          description: Updated memory
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AiMemory"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /ai/instances/{id}/activate:
+    post:
+      operationId: activateAiInstance
+      tags: [ai-layer]
+      summary: Manually activate a dormant AI instance
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Instance activated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AiInstance"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /ai/instances/{id}/dormant:
+    post:
+      operationId: dormantAiInstance
+      tags: [ai-layer]
+      summary: Manually put an AI instance to dormant state
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Instance dormant
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AiInstance"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /ai/monitor/status:
+    get:
+      operationId: getMonitorStatus
+      tags: [ai-layer]
+      summary: Get activity monitor status
+      description: Shows blockchain monitoring status, last checked block, and activity metrics
+      responses:
+        "200":
+          description: Monitor status
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MonitorStatus"
+
+  /ai/monitor/trigger:
+    post:
+      operationId: triggerActivityCheck
+      tags: [ai-layer]
+      summary: Manually trigger an activity check
+      description: Forces the monitor to poll for new transactions immediately
+      responses:
+        "200":
+          description: Trigger result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TriggerResult"
+
+  /ai/activity/log:
+    get:
+      operationId: getActivityLog
+      tags: [ai-layer]
+      summary: Get recent blockchain activity log
+      description: Returns the last N activity events detected on the blockchain
+      responses:
+        "200":
+          description: Activity log
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ActivityEvent"
+
+components:
+  schemas:
+    HealthStatus:
+      type: object
+      properties:
+        status:
+          type: string
+      required:
+        - status
+
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+      required:
+        - error
+
+    AiStatus:
+      type: string
+      enum: [ACTIVE, DORMANT, ARCHIVED]
+
+    AiInstance:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        status:
+          $ref: "#/components/schemas/AiStatus"
+        energyLevel:
+          type: number
+          description: Energy level from 0 to 100
+        lastActiveAt:
+          type: string
+          format: date-time
+          nullable: true
+        walletAddress:
+          type: string
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - name
+        - status
+        - energyLevel
+        - lastActiveAt
+        - walletAddress
+        - createdAt
+        - updatedAt
+
+    CreateAiInstanceBody:
+      type: object
+      properties:
+        name:
+          type: string
+        walletAddress:
+          type: string
+          nullable: true
+      required:
+        - name
+
+    AiMemory:
+      type: object
+      properties:
+        id:
+          type: string
+        instanceId:
+          type: string
+        memories:
+          type: object
+          description: Arbitrary key-value memory store for this AI
+          additionalProperties: true
+        checkpointAt:
+          type: string
+          format: date-time
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - instanceId
+        - memories
+        - checkpointAt
+        - createdAt
+        - updatedAt
+
+    UpdateAiMemoryBody:
+      type: object
+      properties:
+        memories:
+          type: object
+          additionalProperties: true
+      required:
+        - memories
+
+    MonitorStatus:
+      type: object
+      properties:
+        isRunning:
+          type: boolean
+        lastCheckedAt:
+          type: string
+          format: date-time
+          nullable: true
+        lastBlockHeight:
+          type: number
+          nullable: true
+        totalTransactionsDetected:
+          type: number
+        activeInstances:
+          type: number
+        dormantInstances:
+          type: number
+        rpcConnected:
+          type: boolean
+        pollIntervalSeconds:
+          type: number
+      required:
+        - isRunning
+        - lastCheckedAt
+        - lastBlockHeight
+        - totalTransactionsDetected
+        - activeInstances
+        - dormantInstances
+        - rpcConnected
+        - pollIntervalSeconds
+
+    TriggerResult:
+      type: object
+      properties:
+        transactionsFound:
+          type: number
+        instancesRevived:
+          type: number
+        instancesDormanted:
+          type: number
+        message:
+          type: string
+      required:
+        - transactionsFound
+        - instancesRevived
+        - instancesDormanted
+        - message
+
+    ActivityEvent:
+      type: object
+      properties:
+        id:
+          type: string
+        eventType:
+          type: string
+          enum: [TRANSACTION_DETECTED, AI_ACTIVATED, AI_DORMANT, AI_ARCHIVED, ENERGY_CHANGED]
+        instanceId:
+          type: string
+          nullable: true
+        details:
+          type: object
+          additionalProperties: true
+        createdAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - eventType
+        - instanceId
+        - details
+        - createdAt

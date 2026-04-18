@@ -1,0 +1,56 @@
+# ============================================================
+# docker-compose.yml — Multi-Node Decentralized Deployment
+# Jalankan 3 node sekaligus untuk testing P2P
+# ============================================================
+version: "3.9"
+
+services:
+  ai-node-1:
+    build: .
+    ports:
+      - "3001:3000"
+      - "9081:9080"
+    environment:
+      PORT: "3000"
+      P2P_PORT: "9080"
+      NODE_TYPE: "AI_NODE"
+      NODE_ID: "node_1"
+      INITIAL_PEERS: "ws://ai-node-2:9080,ws://ai-node-3:9080"
+    volumes:
+      - node1_state:/app/node_state
+    restart: unless-stopped
+
+  ai-node-2:
+    build: .
+    ports:
+      - "3002:3000"
+      - "9082:9080"
+    environment:
+      PORT: "3000"
+      P2P_PORT: "9080"
+      NODE_TYPE: "VALIDATOR_NODE"
+      NODE_ID: "node_2"
+      INITIAL_PEERS: "ws://ai-node-1:9080,ws://ai-node-3:9080"
+    volumes:
+      - node2_state:/app/node_state
+    restart: unless-stopped
+
+  ai-node-3:
+    build: .
+    ports:
+      - "3003:3000"
+      - "9083:9080"
+    environment:
+      PORT: "3000"
+      P2P_PORT: "9080"
+      NODE_TYPE: "AI_NODE"
+      NODE_ID: "node_3"
+      INITIAL_PEERS: "ws://ai-node-1:9080,ws://ai-node-2:9080"
+    volumes:
+      - node3_state:/app/node_state
+    restart: unless-stopped
+
+volumes:
+  node1_state:
+  node2_state:
+  node3_state:
