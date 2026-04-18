@@ -1,4 +1,0 @@
-Contributing to IXC
-===========================
-
-@ixcoinglobal
